@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* =========================================
+   BREAKPOINTS
+========================================= */
+
+@custom-variant tab (@media (min-width: 720px));
+
+@custom-variant desk (@media (min-width: 1024px) and (min-aspect-ratio: 5/4));
+
+
+/* =========================================
+   TAILWIND THEME
+========================================= */
+
+@theme {
+  /*
+   * Main editorial serif font.
+   *
+   * This makes:
+   *
+   * font-serif
+   *
+   * use Libre Baskerville.
+   */
+  --font-serif: var(--font-libre-baskerville), Georgia, "Times New Roman", serif;
+
+  /*
+   * Main sans-serif font.
+   */
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /*
+   * Script font.
+   */
+  --font-script: var(--font-script), "Snell Roundhand", cursive;
+
+  /*
+   * Gold brand colour.
+   */
+  --color-gold: #c9a55c;
+}
+
+
+/* =========================================
+   GLOBAL HTML
+========================================= */
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #040404;
+  color: #f5f2ec;
+
+  /*
+   * Keep the editorial rendering smooth.
+   */
+  text-rendering: optimizeLegibility;
+
+  /*
+   * Prevent horizontal overflow caused by
+   * the oversized desktop hero artwork.
+   */
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   IMAGES
+========================================= */
+
+img {
+  max-width: 100%;
+}
+
+
+/* =========================================
+   EDITORIAL SERIF UTILITY
+========================================= */
+
+.font-editorial {
+  font-family:
+    var(--font-libre-baskerville),
+    Georgia,
+    "Times New Roman",
+    serif;
+}
+
+
+/* =========================================
+   SCRIPT UTILITY
+========================================= */
+
+.font-script {
+  font-family:
+    var(--font-script),
+    "Snell Roundhand",
+    cursive;
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================
+   TABLET / SMALL DESKTOP
+========================================= */
+
+@media screen and (max-width: 1200px) and (min-width: 1024px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    overflow: hidden;
+  }
+}
