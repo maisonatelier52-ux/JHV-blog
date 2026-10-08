@@ -1,6 +1,7 @@
 
 
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 import { Inter, Libre_Baskerville, Mrs_Saint_Delafield } from "next/font/google";
 import "./globals.css";
 
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
       >
         <Header />
         {children}
+        <PageTransition />
       </body>
     </html>
   );

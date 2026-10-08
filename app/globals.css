@@ -143,3 +143,264 @@ img {
     overflow: hidden;
   }
 }
+
+/* =========================================================
+   ANIMATIONS
+   One stylesheet animates every page, because all pages share
+   the same hero structure:
+     main > section:first-child  (eyebrow, h1, text, button)
+     main > section:nth-child(2) (portrait, signature, quote)
+========================================================= */
+
+/* ---------- Keyframes ---------- */
+
+@keyframes jhv-rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes jhv-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes jhv-fall {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Heading: soft left-to-right wipe with a touch of blur */
+@keyframes jhv-wipe {
+  from {
+    opacity: 0;
+    clip-path: inset(-40% 100% -40% -15%);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(-40% -15% -40% -15%);
+    filter: blur(0);
+  }
+}
+
+@keyframes jhv-line {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Portrait: simple fade in */
+@keyframes jhv-portrait-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Signature: written in from the left */
+@keyframes jhv-sign {
+  from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+  to   { clip-path: inset(0 0 0 0);    opacity: 1; }
+}
+
+/* Button glow pulse */
+@keyframes jhv-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(201, 165, 92, 0)); }
+  50%      { filter: drop-shadow(0 0 10px rgba(201, 165, 92, 0.35)); }
+}
+
+/* Curtain */
+@keyframes jhv-open-top    { from { transform: translateY(0); } to { transform: translateY(-101%); } }
+@keyframes jhv-open-bottom { from { transform: translateY(0); } to { transform: translateY(101%); } }
+@keyframes jhv-close-top    { from { transform: translateY(-101%); } to { transform: translateY(0); } }
+@keyframes jhv-close-bottom { from { transform: translateY(101%); }  to { transform: translateY(0); } }
+
+@keyframes jhv-curtain-line-open {
+  0%   { opacity: 1; transform: scaleX(1); }
+  35%  { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(1); }
+}
+
+@keyframes jhv-curtain-line-close {
+  0%   { opacity: 1; transform: scaleX(0); }
+  100% { opacity: 1; transform: scaleX(1); }
+}
+
+
+/* ---------- Header ---------- */
+
+header {
+  animation: jhv-fall 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+}
+
+header a img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s;
+}
+
+header a:hover img {
+  transform: translateY(-2px) scale(1.06);
+  filter: drop-shadow(0 0 10px rgba(201, 165, 92, 0.45));
+}
+
+
+/* ---------- Text column (first section) ---------- */
+
+/* Gold eyebrow */
+main > section:first-child > p:first-child {
+  animation: jhv-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1s both;
+}
+
+main > section:first-child > p:first-child > span {
+  transform-origin: left center;
+  animation: jhv-line 0.9s cubic-bezier(0.65, 0, 0.35, 1) 1.15s both;
+}
+
+/* Heading lines - each line wipes in one after the other */
+main > section:first-child > h1 > span {
+  animation: jhv-wipe 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+main > section:first-child > h1 > span:nth-child(1) { animation-delay: 1.2s; }
+main > section:first-child > h1 > span:nth-child(2) { animation-delay: 1.4s; }
+main > section:first-child > h1 > span:nth-child(3) { animation-delay: 1.6s; }
+
+/* Description + button */
+main > section:first-child > p:nth-of-type(2) {
+  animation: jhv-rise 1s cubic-bezier(0.22, 1, 0.36, 1) 1.85s both;
+}
+
+main > section:first-child > a {
+  animation:
+    jhv-rise 1s cubic-bezier(0.22, 1, 0.36, 1) 2.05s both,
+    jhv-glow 4.5s ease-in-out 3.5s infinite;
+}
+
+
+/* ---------- Image column (second section) ---------- */
+
+main > section:nth-child(2) > img {
+  animation: jhv-portrait-in 1.6s ease-out 0.8s both;
+}
+
+/* Top background image fades in */
+main > section:nth-child(2) > div:first-child {
+  animation: jhv-fade 2s ease-out 0.8s both;
+}
+
+/* Signature writes itself */
+main > section:nth-child(2) img[src*="signature"] {
+  animation: jhv-sign 1.8s cubic-bezier(0.65, 0, 0.35, 1) 2.4s both;
+}
+
+/* Quote */
+main > section:nth-child(2) blockquote {
+  animation: jhv-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) 2.6s both;
+}
+
+main > section:nth-child(2) blockquote > span {
+  transform-origin: right center;
+  animation: jhv-line 0.9s cubic-bezier(0.65, 0, 0.35, 1) 3s both;
+}
+
+@media (min-width: 1024px) and (min-aspect-ratio: 5/4) {
+  main > section:nth-child(2) blockquote > span {
+    transform-origin: left center;
+  }
+}
+
+
+/* ---------- Mobile / tablet scroll reveal (image is below the text) ---------- */
+
+@supports (animation-timeline: view()) {
+  @media (max-width: 1023px), (max-aspect-ratio: 5/4) {
+    main > section:nth-child(2) > img {
+      animation: jhv-portrait-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    main > section:nth-child(2) blockquote {
+      animation: jhv-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 50%;
+    }
+
+    main > section:nth-child(2) blockquote > span {
+      animation-delay: 0s;
+    }
+  }
+}
+
+
+/* ---------- Button hover polish ---------- */
+
+main > section:first-child > a {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+main > section:first-child > a:hover {
+  transform: translateX(4px);
+}
+
+
+/* ---------- Page transition curtain ---------- */
+
+.jhv-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.jhv-curtain__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.2%;
+  background: #040404;
+  will-change: transform;
+}
+
+.jhv-curtain__panel--top    { top: 0; }
+.jhv-curtain__panel--bottom { bottom: 0; }
+
+.jhv-curtain__line {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a55c 20%, #f3dca6 50%, #c9a55c 80%, transparent);
+  box-shadow: 0 0 14px rgba(201, 165, 92, 0.7);
+  opacity: 0;
+}
+
+/* Opening (page just loaded) */
+.jhv-curtain.is-opening .jhv-curtain__panel--top {
+  animation: jhv-open-top 1s cubic-bezier(0.76, 0, 0.24, 1) 0.25s both;
+}
+.jhv-curtain.is-opening .jhv-curtain__panel--bottom {
+  animation: jhv-open-bottom 1s cubic-bezier(0.76, 0, 0.24, 1) 0.25s both;
+}
+.jhv-curtain.is-opening .jhv-curtain__line {
+  animation: jhv-curtain-line-open 0.9s ease-out 0.1s both;
+}
+
+/* Closing (leaving the page) */
+.jhv-curtain.is-closing {
+  pointer-events: all;
+}
+.jhv-curtain.is-closing .jhv-curtain__panel--top {
+  animation: jhv-close-top 0.6s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+.jhv-curtain.is-closing .jhv-curtain__panel--bottom {
+  animation: jhv-close-bottom 0.6s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+.jhv-curtain.is-closing .jhv-curtain__line {
+  animation: jhv-curtain-line-close 0.5s ease-out 0.35s both;
+}
+
+
+/* ---------- Reduced motion: show everything instantly ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .jhv-curtain {
+    display: none;
+  }
+}
