@@ -173,7 +173,7 @@ export default function Page() {
           The Legacy, Power, and Global Influence of a Financial Dynasty
         </p>
 
-        {/* =========================================================
+          {/* =========================================================
             CTA BUTTON
         ========================================================= */}
 
@@ -185,19 +185,18 @@ export default function Page() {
             relative
             isolate
 
-            ml-[calc(var(--btn-line)_+_6px)]
-            mt-[24px]
+            ml-[calc(var(--btn-line)_+_8px)]
+            mt-[30px]
 
             inline-flex
-            h-[46px]
-            w-[270px]
-
+            h-[54px]
+            max-w-[calc(100%_-_var(--btn-line)_-_8px)]
             items-center
             justify-between
-            gap-3
+            gap-5
 
             whitespace-nowrap
-            px-5
+            px-[26px]
 
             font-sans
             text-[8px]
@@ -206,7 +205,7 @@ export default function Page() {
             tracking-[0.14em]
             text-white
 
-            [--btn-line:18px]
+            [--btn-line:22px]
 
             before:absolute
             before:right-full
@@ -238,45 +237,31 @@ export default function Page() {
 
             motion-reduce:after:[transition:none]
 
-            tab:mt-[30px]
-            tab:h-[50px]
-            tab:w-[290px]
-            tab:gap-3
-            tab:px-5
+            tab:mt-[38px]
+            tab:h-[58px]
+            tab:gap-7
+            tab:px-8
             tab:text-[8.5px]
             tab:tracking-[0.15em]
-            tab:[--btn-line:30px]
+            tab:[--btn-line:44px]
 
-            desk:mt-[calc(32_*_var(--u))]
-            desk:h-[calc(52_*_var(--u))]
-            desk:w-[310px]
-            desk:min-w-0
-            desk:gap-[10px]
-            desk:px-[22px]
+            desk:mt-[calc(35_*_var(--u))]
+            desk:h-[calc(57_*_var(--u))]
+            desk:min-h-[44px]
+            desk:min-w-[max(214px,calc(275_*_var(--u)))]
+            desk:gap-[calc(16_*_var(--u))]
+            desk:px-[calc(30_*_var(--u))]
             desk:text-[length:max(8px,calc(9_*_var(--u)))]
             desk:tracking-[0.14em]
-            desk:[--btn-line:max(35px,calc(55_*_var(--u)))]
+            desk:[--btn-line:max(40px,calc(66_*_var(--u)))]
           "
         >
-          {/* Button text */}
-
-          <span
-            className="
-              min-w-0
-              flex-1
-              overflow-hidden
-              text-ellipsis
-            "
-          >
-            Who Is Julio Herrera Velutni
-          </span>
-
-          {/* Arrow */}
+          <span className="whitespace-normal tab:whitespace-nowrap"> Who Is Julio Herrera Velutni</span>
 
           <svg
             viewBox="0 0 28 12"
-            width="22"
-            height="10"
+            width="26"
+            height="12"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.2"
@@ -288,7 +273,7 @@ export default function Page() {
               text-gold
 
               [transition:transform_0.25s]
-              group-hover:[transform:translateX(4px)]
+              group-hover:[transform:translateX(5px)]
               motion-reduce:[transition:none]
             "
           >
