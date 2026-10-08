@@ -15,9 +15,9 @@ export default function Header() {
           width={129}
           height={192}
           priority
-          className="block h-11 w-auto desk:h-[max(34px,calc(47_*_var(--u)))]"
+          className="block h-7 w-auto desk:h-[max(34px,calc(47_*_var(--u)))]"
         />
-        <span className="font-serif text-[24px] font-medium tracking-[0.02em] desk:text-[length:max(19px,calc(24_*_var(--u)))]">
+        <span className="font-serif text-[17px] font-medium tracking-[0.02em] desk:text-[length:max(19px,calc(24_*_var(--u)))]">
           JHV
         </span>
       </Link>
