@@ -141,7 +141,7 @@ export default function Page() {
               mt-[6px]
               block
 
-              desk:mt-[calc(12_*_var(--u))]
+              desk:mt-[calc(28_*_var(--u))]
             "
           >
             VELUTNI
