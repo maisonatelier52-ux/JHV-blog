@@ -63,7 +63,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000000",
+  themeColor: "#e9decc",
 };
 
 /* =========================================
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
         ${inter.variable}
         ${libreBaskerville.variable}
         ${mrsSaintDelafield.variable}
-        desk:[--u:max(0.5px,min(calc(100vw_/_1918),calc(100vh_/_820)))]
+        desk:[--u:calc(100vw_/_1853)]
         desk:has-[.hero]:h-full
         desk:has-[.hero]:overflow-hidden
       `}
@@ -86,10 +86,10 @@ export default function RootLayout({ children }) {
       <body
         className="
           m-0
-          bg-[#040404]
+          bg-cream
           font-serif
           leading-[normal]
-          text-[#f5f2ec]
+          text-navy
           antialiased
           [text-rendering:optimizeLegibility]
           desk:has-[.hero]:h-full
