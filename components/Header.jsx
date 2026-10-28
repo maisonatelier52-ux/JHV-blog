@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,7 +8,7 @@ export default function Header() {
       <Link
         href="/"
         aria-label="JHV home"
-        className="group flex items-center gap-3 no-underline focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-navy desk:gap-[calc(12_*_var(--u))]"
+        className="group flex items-center gap-3 no-underline focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-navy desk:gap-[calc(10_*_var(--u))]"
       >
         <Image
           src="/images/logo.png"
@@ -15,9 +16,9 @@ export default function Header() {
           width={129}
           height={192}
           priority
-          className="block h-7 w-auto [transition:transform_0.6s_cubic-bezier(0.22,1,0.36,1)] group-hover:[transform:translateY(-2px)_scale(1.06)] desk:h-[max(34px,calc(56_*_var(--u)))]"
+          className="block h-[26px] w-auto [transition:transform_0.6s_cubic-bezier(0.22,1,0.36,1)] group-hover:[transform:translateY(-2px)_scale(1.06)] desk:h-[max(30px,calc(50_*_var(--u)))]"
         />
-        <span className="font-serif text-[19px] font-normal tracking-[0.01em] text-navy desk:text-[length:max(19px,calc(32_*_var(--u)))]">
+        <span className="font-serif text-[18px] font-normal tracking-[0.01em] text-navy desk:text-[length:max(18px,calc(29_*_var(--u)))]">
           JHV
         </span>
       </Link>
