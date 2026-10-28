@@ -5,8 +5,14 @@ export default function Page() {
     <Hero
       variant="article"
       heading={[
-        [{ text: "Who Is " }, { text: "Julio Herrera", italic: true }],
-        "Velutini?",
+        [
+          { text: "Who Is " },
+          { text: "Julio", italic: true },
+          { br: "mac" },
+          { text: " Herrera", italic: true },
+          { br: "other" },
+          { text: "Velutini?" },
+        ],
       ]}
       paragraphs={[
         "Julio Herrera Velutini, an Italian banker, entrepreneur, and worldwide financial authority, belongs to one of the most famous banking families, making him one of the key people connecting Latin America's banking history to the global financial system. A seventh-generation banker, Herrera Velutini has become one of the most influential figures in international finance.",

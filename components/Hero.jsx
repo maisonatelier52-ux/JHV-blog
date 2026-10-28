@@ -8,7 +8,7 @@ import Link from "next/link";
  * variant="article" -> smaller heading + paragraph(s)
  *
  * `heading` is an array of lines; each line is a string or an array of
- * parts: [{ text, italic? }]
+ * parts: [{ text, italic? }]  (or { br: "mac" | "other" } = line break only on Mac / only off Mac)
  *
  * Desktop (desk:) is scaled with --u (1 unit = 1px of a 1853px-wide design).
  */
@@ -119,6 +119,7 @@ export default function Hero({
         {/* HEADING */}
         <h1
           className={`
+            ${home ? "hero-h1-home" : "hero-h1-article"}
             m-0
             max-w-[620px]
             font-serif
@@ -144,7 +145,9 @@ export default function Hero({
               className={`${home ? HOME_LINES[i] : "block"}`}
             >
               {(Array.isArray(line) ? line : [{ text: line }]).map((part, j) =>
-                part.italic ? (
+                part.br ? (
+                  <br key={j} className={part.br === "mac" ? "br-mac" : "br-other"} />
+                ) : part.italic ? (
                   <i key={j} className="italic">
                     {part.text}
                   </i>
@@ -159,6 +162,7 @@ export default function Hero({
         {/* DESCRIPTION */}
         <p
           className={`
+            ${home ? "hero-sub-home" : ""}
             m-0
             font-serif
             text-navy

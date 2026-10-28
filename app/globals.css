@@ -52,7 +52,16 @@ img { max-width: 100%; }
    MAC ONLY - taller Julio image (class .is-mac set by script in layout)
 ========================================================= */
 
+/* line breaks that only apply on Mac / only off Mac */
+.br-mac { display: none; }
+.is-mac .br-mac { display: inline; }
+.is-mac .br-other { display: none; }
+
 @media (min-width: 1024px) and (min-aspect-ratio: 5/4) {
+  /* Mac home page: smaller name + subtitle */
+  .is-mac .hero-h1-home { font-size: calc(78 * var(--u)); }
+  .is-mac .hero-sub-home { font-size: calc(16.5 * var(--u)); }
+
   .is-mac .hero-bg {
     height: calc(930 * var(--u));
     background-size: cover;
