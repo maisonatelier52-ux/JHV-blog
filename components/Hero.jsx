@@ -13,13 +13,6 @@ import Link from "next/link";
  * Desktop (desk:) is scaled with --u (1 unit = 1px of a 1853px-wide design).
  */
 
-/* Wipe-in delay per heading line (full class names so Tailwind can see them) */
-const LINE_ANIM = [
-  "animate-[jhv-wipe_1.1s_cubic-bezier(0.22,1,0.36,1)_1.2s_both]",
-  "animate-[jhv-wipe_1.1s_cubic-bezier(0.22,1,0.36,1)_1.4s_both]",
-  "animate-[jhv-wipe_1.1s_cubic-bezier(0.22,1,0.36,1)_1.6s_both]",
-];
-
 /* Per-line layout of the home heading: JULIO HERRERA on one desktop line */
 const HOME_LINES = [
   "block desk:inline",
@@ -95,7 +88,6 @@ export default function Hero({
             uppercase
             tracking-[0.3em]
             text-navy
-            animate-[jhv-rise_0.9s_cubic-bezier(0.22,1,0.36,1)_1s_both]
 
             tab:mb-[26px]
             tab:text-[13px]
@@ -115,7 +107,6 @@ export default function Hero({
               flex-none
               origin-left
               bg-navy
-              animate-[jhv-line_0.9s_cubic-bezier(0.65,0,0.35,1)_1.15s_both]
 
               tab:w-10
 
@@ -150,7 +141,7 @@ export default function Hero({
           {heading.map((line, i) => (
             <span
               key={i}
-              className={`${home ? HOME_LINES[i] : "block"} ${LINE_ANIM[i] || LINE_ANIM[2]}`}
+              className={`${home ? HOME_LINES[i] : "block"}`}
             >
               {(Array.isArray(line) ? line : [{ text: line }]).map((part, j) =>
                 part.italic ? (
@@ -171,7 +162,6 @@ export default function Hero({
             m-0
             font-serif
             text-navy
-            animate-[jhv-rise_1s_cubic-bezier(0.22,1,0.36,1)_1.85s_both]
             ${
               home
                 ? `
@@ -241,8 +231,6 @@ export default function Hero({
             tracking-[0.14em]
             text-white
             no-underline
-
-            animate-[jhv-rise_1s_cubic-bezier(0.22,1,0.36,1)_2.05s_both,jhv-glow_4.5s_ease-in-out_3.5s_infinite]
 
             before:absolute
             before:top-1/2
@@ -339,6 +327,7 @@ export default function Hero({
         <div
           aria-hidden="true"
           className="
+            hero-bg
             hidden
 
             desk:absolute
@@ -348,8 +337,6 @@ export default function Hero({
             desk:h-[calc(849_*_var(--u))]
             desk:w-screen
             desk:[background:url(/images/hero-bg.jpg)_100%_100%/100%_100%_no-repeat]
-
-            animate-[jhv-fade_1.6s_ease-out_0.8s_both]
           "
         />
 
@@ -367,7 +354,6 @@ export default function Hero({
             ${home ? "absolute inset-0 h-full w-full object-cover object-[center_top]" : "h-auto w-full"}
             [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,#000_14%)]
             [mask-image:linear-gradient(to_bottom,transparent_0,#000_14%)]
-            animate-[jhv-fade_1.6s_ease-out_0.8s_both]
 
             desk:hidden
           `}
@@ -414,7 +400,6 @@ export default function Hero({
             className={`
               absolute
               h-auto
-              animate-[jhv-sign_1.8s_cubic-bezier(0.65,0,0.35,1)_2.4s_both]
 
               desk:left-[calc(60_*_var(--u))]
               desk:w-[calc(250_*_var(--u))]
@@ -437,7 +422,6 @@ export default function Hero({
             pb-5
             pt-16
             text-right
-            animate-[jhv-rise_1.1s_cubic-bezier(0.22,1,0.36,1)_2.6s_both]
 
             tab:px-14
             tab:pb-8
@@ -485,7 +469,6 @@ export default function Hero({
               origin-right
               bg-cream
               desk:bg-navy
-              animate-[jhv-line_0.9s_cubic-bezier(0.65,0,0.35,1)_3s_both]
 
               desk:ml-0
               desk:mb-[calc(17_*_var(--u))]

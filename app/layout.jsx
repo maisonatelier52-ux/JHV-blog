@@ -1,7 +1,6 @@
 
 
 import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
 import { Inter, Libre_Baskerville, Mrs_Saint_Delafield } from "next/font/google";
 import "./globals.css";
 
@@ -74,6 +73,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`
         ${inter.variable}
         ${libreBaskerville.variable}
@@ -83,6 +83,15 @@ export default function RootLayout({ children }) {
         desk:has-[.hero]:overflow-hidden
       `}
     >
+      <head>
+        {/* Adds .is-mac on <html> for real Macs only (not iPhone/iPad) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var n=navigator,p=n.userAgentData&&n.userAgentData.platform||n.platform||'';if(/Mac/i.test(p)&&!(n.maxTouchPoints>1))document.documentElement.classList.add('is-mac')}catch(e){}",
+          }}
+        />
+      </head>
       <body
         className="
           m-0
@@ -98,7 +107,6 @@ export default function RootLayout({ children }) {
       >
         <Header />
         {children}
-        <PageTransition />
       </body>
     </html>
   );

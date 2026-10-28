@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="absolute inset-x-0 top-0 z-30 flex h-[76px] items-center justify-between px-6 animate-[jhv-fall_0.9s_cubic-bezier(0.22,1,0.36,1)_0.9s_both] tab:h-[88px] tab:px-10 desk:h-[calc(108_*_var(--u))] desk:min-h-[64px] desk:pl-[calc(103_*_var(--u))] desk:pr-[4.7vw]">
+    <header className="absolute inset-x-0 top-0 z-30 flex h-[76px] items-center justify-between px-6 tab:h-[88px] tab:px-10 desk:h-[calc(108_*_var(--u))] desk:min-h-[64px] desk:pl-[calc(103_*_var(--u))] desk:pr-[4.7vw]">
       <Link
         href="/"
         aria-label="JHV home"

@@ -40,49 +40,25 @@ img { max-width: 100%; }
 .font-script { font-family: var(--font-script), "Snell Roundhand", cursive; }
 
 /* =========================================================
-   ANIMATIONS
+   ANIMATIONS  (only idle CTA glow remains)
 ========================================================= */
 
-@keyframes jhv-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-@keyframes jhv-fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes jhv-fall { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
-@keyframes jhv-wipe {
-  from { opacity: 0; clip-path: inset(-40% 100% -40% -15%); filter: blur(8px); }
-  to   { opacity: 1; clip-path: inset(-40% -15% -40% -15%); filter: blur(0); }
-}
-@keyframes jhv-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes jhv-sign { from { clip-path: inset(0 100% 0 0); opacity: 0.4; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
 @keyframes jhv-glow {
   0%, 100% { filter: drop-shadow(0 0 0 rgba(17, 38, 75, 0)); }
   50%      { filter: drop-shadow(0 4px 12px rgba(17, 38, 75, 0.28)); }
 }
 
-@keyframes jhv-open-top    { from { transform: translateY(0); } to { transform: translateY(-101%); } }
-@keyframes jhv-open-bottom { from { transform: translateY(0); } to { transform: translateY(101%); } }
-@keyframes jhv-close-top    { from { transform: translateY(-101%); } to { transform: translateY(0); } }
-@keyframes jhv-close-bottom { from { transform: translateY(101%); } to { transform: translateY(0); } }
-@keyframes jhv-curtain-line-open  { 0%, 35% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes jhv-curtain-line-close { 0% { opacity: 1; transform: scaleX(0); } 100% { opacity: 1; transform: scaleX(1); } }
+/* =========================================================
+   MAC ONLY - taller Julio image (class .is-mac set by script in layout)
+========================================================= */
 
-/* ----- page transition curtain ----- */
-
-.jhv-curtain { position: fixed; inset: 0; z-index: 100; pointer-events: none; }
-.jhv-curtain__panel { position: absolute; left: 0; right: 0; height: 50.2%; background: #e9decc; will-change: transform; }
-.jhv-curtain__panel--top { top: 0; }
-.jhv-curtain__panel--bottom { bottom: 0; }
-.jhv-curtain__line {
-  position: absolute; left: 8%; right: 8%; top: 50%; height: 1px;
-  background: linear-gradient(90deg, transparent, #11264b 20%, #c9a55c 50%, #11264b 80%, transparent);
-  box-shadow: 0 0 12px rgba(201, 165, 92, 0.6);
-  opacity: 0;
+@media (min-width: 1024px) and (min-aspect-ratio: 5/4) {
+  .is-mac .hero-bg {
+    height: calc(930 * var(--u));
+    background-size: cover;
+    background-position: right bottom;
+  }
 }
-.jhv-curtain.is-opening .jhv-curtain__panel--top { animation: jhv-open-top 1s cubic-bezier(0.76, 0, 0.24, 1) 0.25s both; }
-.jhv-curtain.is-opening .jhv-curtain__panel--bottom { animation: jhv-open-bottom 1s cubic-bezier(0.76, 0, 0.24, 1) 0.25s both; }
-.jhv-curtain.is-opening .jhv-curtain__line { animation: jhv-curtain-line-open 0.9s ease-out 0.1s both; }
-.jhv-curtain.is-closing { pointer-events: all; }
-.jhv-curtain.is-closing .jhv-curtain__panel--top { animation: jhv-close-top 0.6s cubic-bezier(0.76, 0, 0.24, 1) both; }
-.jhv-curtain.is-closing .jhv-curtain__panel--bottom { animation: jhv-close-bottom 0.6s cubic-bezier(0.76, 0, 0.24, 1) both; }
-.jhv-curtain.is-closing .jhv-curtain__line { animation: jhv-curtain-line-close 0.5s ease-out 0.35s both; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -91,5 +67,4 @@ img { max-width: 100%; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .jhv-curtain { display: none; }
 }
