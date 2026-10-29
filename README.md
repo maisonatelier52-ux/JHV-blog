@@ -10,7 +10,7 @@ npm run build && npm start
 ## Structure
 - `components/Hero.jsx` – the one shared hero (cream + navy theme); every page uses it
 - `app/page.jsx` – home (variant="home")
-- `app/who-is-julio-herrera-velutni/page.jsx` – second page
+- `app/julio-herrera-velutini-biography/page.jsx` – second page (SEO biography page; old /who-is-julio-herrera-velutni 301-redirects here, see next.config.mjs)
 - `components/ArticleHero.jsx` – thin wrapper around Hero, used by the 4 article pages
 - `app/what-private-banking-means/page.jsx` – page 3 (content only)
 - `app/reading-the-global-markets/page.jsx` – page 4 (content only)
